@@ -10,10 +10,62 @@ class RegisterForm extends StatelessWidget {
         title: const Text('Register Form'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
-        centerTitle: true,
       ),
-      body: const Center(
-        child: Text('Register Page', style: TextStyle(fontSize: 24)),
+
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+
+            const Text(
+              'Registration',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+
+            const SizedBox(height: 20),
+
+            // TextField
+            const TextField(
+              decoration: InputDecoration(
+                labelText: 'Name',
+                hintText: 'Enter your name',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.person),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            // TextFormField
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                hintText: 'Enter your email',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.email),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your email';
+                }
+                return null;
+              },
+            ),
+
+            const SizedBox(height: 20),
+
+            const TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Password',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.lock),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
