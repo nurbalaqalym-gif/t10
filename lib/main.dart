@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'register_form.dart';
+import 'package:nav_6/register_form.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,27 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Form App'),
-          backgroundColor: Colors.blue,
-          foregroundColor: Colors.white,
-          centerTitle: true,
-        ),
-        body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const RegisterForm(),
-                ),
-              );
-            },
-            child: const Text('Register'),
-          ),
-        ),
-      ),
+      title: 'Input Styling',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const RegisterPage(),
     );
   }
 }

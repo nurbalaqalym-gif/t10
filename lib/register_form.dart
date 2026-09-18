@@ -1,67 +1,84 @@
 import 'package:flutter/material.dart';
 
-class RegisterForm extends StatelessWidget {
-  const RegisterForm({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register Form'),
+        title: const Text('Registration Form'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(20),
-
         child: Column(
           children: [
             const SizedBox(height: 20),
 
             const Text(
-              'Registration',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              'Create Account',
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
 
-            // TextField
-            const TextField(
+            TextField(
               decoration: InputDecoration(
-                labelText: 'Name',
+                labelText: 'Full Name',
                 hintText: 'Enter your name',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.person),
+                prefixIcon: const Icon(Icons.person),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
               ),
             ),
 
             const SizedBox(height: 20),
 
-            // TextFormField
-            TextFormField(
-              decoration: const InputDecoration(
+            TextField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
                 labelText: 'Email',
                 hintText: 'Enter your email',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email),
+                prefixIcon: const Icon(Icons.email),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your email';
-                }
-                return null;
-              },
             ),
 
             const SizedBox(height: 20),
 
-            const TextField(
+            TextField(
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.lock),
+                hintText: 'Enter password',
+                prefixIcon: const Icon(Icons.lock),
+                suffixIcon: const Icon(Icons.visibility),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 30),
+
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                child: const Text('Register', style: TextStyle(fontSize: 18)),
               ),
             ),
           ],
